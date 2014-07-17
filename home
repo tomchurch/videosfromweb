@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Motion Design Videos</title>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<head>
+	<title>Page Title</title>
+	
+	<!-- jQuery Mobile Libraries -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+
+	<!-- import.io Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <!-- 1. Include the client library -->
   <script src="https://cdn.import.io/js/2.0.0/importio.js"></script>
-  
-  <!-- 2. Configure the library -->
+
+<!-- 2. Configure the library -->
   <script type="text/javascript">
     importio.init({
       "auth": {
-        "userGuid": "YOUR_USER_GUID",
-        "apiKey": "YOUR_API_KEY"
+        "userGuid": "39c3a09c-d5f2-4b0a-9643-5d0ca08014ec",
+        "apiKey": "mfEAV2aEimdr2+m0lvoWK3/zad4rCb/QW4brp+UE6nLT5psbMuforWceM7qo8rJXBU8KzatccHugR0KY6BHswg=="
       },
       "host": "import.io"
     });
 
-    
-    //**** Data and done callbacks ***//
+ //**** Data and done callbacks ***//
     var dataCallback = function(data) {
       var dataElem = document.getElementById('data');
       console.log(dataElem);
@@ -80,10 +85,15 @@
       }, { "data": dataCallback, "done": doneCallback });
     }  
   </script>
-  
-  
-  <style type="text/css">  
-    #myCanvas {
+
+<style type="text/css">
+	.custom_header {padding:1px;text-align:center;color:blue; }
+	.custom_header h1 {font-size: 20px;}
+	.select_body {background:#0E0090;opacity:0.8;text-align:center;float:right;list-style:none;width:90%;margin:auto auto;text-align:right;border: 1px solid #353434; display:none; padding: 5px; z-index:99; cursor:pointer; color:#fff; box-shadow: 1px 1px 1px 1px #111; -webskit-box-shadow: 1px 1px 1px 1px #111;}
+
+
+
+#myCanvas {
       width: 100%;  
       border: 1px solid #000; 
       font-family: 'georgia', "Times New Roman", Times, serif;
@@ -105,23 +115,105 @@
       font-weight: bold;
       margin-top: 16px;
     }  
-  </style>  
-</head>
 
 
+</style>
+	</head>
 <body>
-  <div id="myCanvas">
-    <button onclick="doQuery()">Query</button>
 
-    <div id="data"></div>
-    <div id="status"></div>
+<div data-role="page" id="home">
+
+	<div data-role="header">
+	
+
+		<div class="custom_header"> 
+
+			<h1>Motion Design Videos</h1>
+		
+		</div> 
+		
+	</div><!-- /header -->
+	
+	<div data-role="content" data-theme="a">
+	
+		<ul data-role="listview">
+			<li>
+				<a href="" data-rel="dialog" data-transition="slide">
+								
+  					 <iframe src="http://player.vimeo.com/video/100985937?title=0&amp;portrait=0&amp;color=ff0179" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	 			<h3>name</h3>
+	 			<p>upload_date</p>
+				</a>
+			</li>	
+			<li>
+				<a href="" data-rel="dialog" data-transition="slide">
+				
+				
+					<iframe src="http://player.vimeo.com/video/101017080?title=0&amp;portrait=0&amp;color=ff0179" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<h3>name</h3>
+				
+				<span class="ui-li-count">1,480</span>
+				<p>upload_date</p>
+				</a>
+			</li>
+		</ul>
+		
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a">
+
+		<div data-role="navbar" data-theme="c">
+		<ul>
+			<li><a href="#page1" data-role="button" data-transition="slide" data-theme="b">Page 1</a></li>
+			<li><a href="#page2" data-role="button" data-transition="slide" data-theme="b">Page 2</a></li>
+		</ul>
+		</div>
+	</div><!-- /header -->
+</div><!-- /page -->
+
+
+<div data-role="page" id="page1">
+	<div data-role="header">
+		<h1>Page 1</h1>
+	</div>
+	<div data-role="content">
+		<p>This is page 1</p>
+	</div>
+	<div data-role="footer">
+		<div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="#home" data-role="button" data-transition="slide" data-direction="reverse">Home</a></li>
+			<li><a href="#page2" data-role="button" data-transition="slide">Page 2</a></li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>Page 2</h1>
+	</div>
+	<div data-role="content">
+		
+		<div id="myCanvas">
+   			<script>doQuery();</script>
+    	<div id="data"></div>
+    	<div id="status"></div>
   </div>
+		
+				
+		
+	</div>
+	<div data-role="footer">
+		<div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="#home" data-role="button" data-transition="slide" data-direction="reverse">Home</a></li>
+			<li><a href="#page1" data-role="button" data-transition="slide" data-direction="reverse">Page 1</a></li>
+		</ul>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
-
-
-
-
-
-
-
