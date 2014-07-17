@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Motion Design Videos</title>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <!-- 1. Include the client library -->
+  <script src="https://cdn.import.io/js/2.0.0/importio.js"></script>
+  
+  <!-- 2. Configure the library -->
+  <script type="text/javascript">
+    importio.init({
+      "auth": {
+        "userGuid": "YOUR_USER_GUID",
+        "apiKey": "YOUR_API_KEY"
+      },
+      "host": "import.io"
+    });
+
+    
+    //**** Data and done callbacks ***//
+    var dataCallback = function(data) {
+      var dataElem = document.getElementById('data');
+      console.log(dataElem);
+      
+      for (var i = 0; i < data.length; i++) 
+      {
+        var d = data[i];
+        var e = document.createElement('div');
+        
+        e.setAttribute('class', 'item');
+        for (var k in d.data) {
+          console.log(d.data[k]);
+          e.innerHTML += "<span>" + k + "</span>: " + d.data[k] + "<br />";
+        }
+        dataElem.appendChild(e);
+      }
+      console.log("Data received!", data);
+    }
+
+    var doneCallback = function(data) {
+      var statusElem = document.getElementById('status');
+      console.log(statusElem);
+      
+      statusElem.innerHTML = 'Done!';
+      console.log("Done, all data:", data);
+    }
+  
+  
+    //*** 3. Do the query (when the function is called) ***//
+    var doQuery = function() {
+      // Query for tile Motion Design Group on Vimeo
+      importio.query({
+        "connectorGuids": [
+          "59668d45-93c8-4b5c-a053-5ff00fc77652"
+        ],
+        "input": {
+          "webpage/url": "http://vimeo.com/groups/541"
+        }
+      }, { "data": dataCallback, "done": doneCallback });
+
+      // Query for tile Motion Design Group on Vimeo
+      importio.query({
+        "connectorGuids": [
+          "59668d45-93c8-4b5c-a053-5ff00fc77652"
+        ],
+        "input": {
+          "webpage/url": "http://vimeo.com/groups/motionographer"
+        }
+      }, { "data": dataCallback, "done": doneCallback });
+
+      // Query for tile Motion Design Group on Vimeo
+      importio.query({
+        "connectorGuids": [
+          "59668d45-93c8-4b5c-a053-5ff00fc77652"
+        ],
+        "input": {
+          "webpage/url": "http://vimeo.com/groups/motion"
+        }
+      }, { "data": dataCallback, "done": doneCallback });
+    }  
+  </script>
+  
+  
+  <style type="text/css">  
+    #myCanvas {
+      width: 100%;  
+      border: 1px solid #000; 
+      font-family: 'georgia', "Times New Roman", Times, serif;
+    }  
+    #myCanvas button {
+      cursor: pointer;
+    }
+    #data {
+      font-size: 14px;
+    }
+    #data .item {
+      border-bottom: 1px solid #aaa;
+    }
+    #data .item span {
+      font-style: italic;      
+    }
+    #status {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 16px;
+    }  
+  </style>  
+</head>
+
+
+<body>
+  <div id="myCanvas">
+    <button onclick="doQuery()">Query</button>
+
+    <div id="data"></div>
+    <div id="status"></div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
